@@ -1,3 +1,11 @@
+##Source
+>Online API:         http://secondhand.leanapp.cn/
+
+>Design Mockup: https://sketch.cloud/s/8yxD3
+ 
+>Project Starter:   https://github.com/LeiZeng/tw-secondhand
+
+
 react-scripts-ts
 ------------------------
 
