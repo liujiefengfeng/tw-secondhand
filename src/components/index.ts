@@ -1,1 +1,7 @@
-export { default as Logo } from './Logo/Logo';
+import Logo from './Logo/Logo';
+import Price from './Price/Price';
+
+export {
+  Logo,
+  Price,
+};
