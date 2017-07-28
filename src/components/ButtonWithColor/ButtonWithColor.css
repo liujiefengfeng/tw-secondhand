@@ -1,0 +1,14 @@
+.button-with-color {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.button-with-color button {
+    font-size: 15px;
+    background-color: #FFEB3B;
+    width: 60%;
+    border: none;
+    border-radius: 5px;
+    height: 30px;
+}
