@@ -1,4 +1,5 @@
 import * as React from 'react';
+import './Header.css';
 
 const close = require('./close.png');
 const arrow = require('./arrow.png');
@@ -10,9 +11,11 @@ interface HeaderProps {
 }
 
 export default (props: HeaderProps) => (
-  <div>
-    {renderIcon(props.closeIcon, props.goBackIcon)}
-    <span>{props.headerContext}</span>
+  <div className={'header'}>
+    <div>
+      {renderIcon(props.closeIcon, props.goBackIcon)}
+    </div>
+    <div>{props.headerContext}</div>
   </div>
 );
 
