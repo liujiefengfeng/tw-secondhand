@@ -1,14 +1,18 @@
 .button-with-color {
-    justify-content: center;
-    align-items: center;
-    display: flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .button-with-color button {
-    font-size: 15px;
-    background-color: #FFEB3B;
-    width: 60%;
-    border: none;
-    border-radius: 5px;
-    height: 30px;
+  font-size: 15px;
+  background-color: #FFEB3B;
+  border: none;
+  border-radius: 5px;
+  height: 30px;
+  width: 60%;
+}
+
+button.button-grey {
+  background-color: #E2E2E2;
 }
