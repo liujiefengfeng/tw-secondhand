@@ -1,4 +1,5 @@
 import * as React from 'react';
+import * as classNames from 'classnames';
 import {isNull, isUndefined} from 'util';
 import './Product.css';
 import Price from '../Price/Price';
@@ -20,7 +21,7 @@ export const Status = ({isClosed}) => {
 
 export const Product = (props: ProductProps) => {
   return (
-    <div className={props.isClosed ? "product grey" : "product"}>
+    <div className={classNames({'product': true}, {'grey': props.isClosed})}>
       <img src={props.image}/>
       <div className="info">
         <Price price={props.price}/>
