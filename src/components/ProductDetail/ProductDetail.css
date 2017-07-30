@@ -10,7 +10,7 @@
 
 .product-brief {
   display: flex;
-  font-size: 16pt;
+  font-size: 20px;
   margin-top: 10px;
 }
 
@@ -29,8 +29,4 @@
   margin-top: 20px;
   margin-bottom: 50px;
   text-align: left;
-}
-
-.small {
-  font-size: 13pt;
 }
