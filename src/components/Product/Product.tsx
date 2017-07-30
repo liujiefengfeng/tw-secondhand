@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as classNames from 'classnames';
-import {isNull, isUndefined} from 'util';
+import * as _ from 'lodash';
 import './Product.css';
 import Price from '../Price/Price';
 import User from '../User/User';
@@ -25,7 +25,7 @@ export const Product = (props: ProductProps) => {
       <img src={props.image}/>
       <div className="info">
         <Price price={props.price}/>
-        {isNull(props.owner) || isUndefined(props.owner) ?
+        {_.isEmpty(props.owner) ?
           <Status isClosed={props.isClosed}/> : <User name={props.owner}/>}
       </div>
     </div>
