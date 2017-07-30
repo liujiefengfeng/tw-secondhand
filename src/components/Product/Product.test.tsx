@@ -16,6 +16,7 @@ describe('Product', () => {
     />);
 
     expect(wrapper.find(Status).text()).to.equal('交易关闭');
+    expect(wrapper.hasClass("grey")).to.equal(true);
   });
 
   it('should render close message when owner is empty & isClosed equal false', () => {
@@ -25,6 +26,7 @@ describe('Product', () => {
     />);
 
     expect(wrapper.find(Status).text()).to.equal('出售中');
+    expect(wrapper.hasClass("grey")).to.equal(false);
   });
 
   it('should render user instead of close message when owner is exist', () => {

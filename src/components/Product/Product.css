@@ -1,6 +1,10 @@
 .product {
 
+}
 
+.grey {
+  background: darkgray;
+  opacity: 0.5;
 }
 
 .product img {

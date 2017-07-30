@@ -20,12 +20,12 @@ export const Status = ({isClosed}) => {
 
 export const Product = (props: ProductProps) => {
   return (
-    <div className="product">
-      <img src={props.image} />
+    <div className={props.isClosed ? "product grey" : "product"}>
+      <img src={props.image}/>
       <div className="info">
         <Price price={props.price}/>
         {isNull(props.owner) || isUndefined(props.owner) ?
-          <Status isClosed={props.isClosed} /> : <User name={props.owner} />}
+          <Status isClosed={props.isClosed}/> : <User name={props.owner}/>}
       </div>
     </div>
   );
