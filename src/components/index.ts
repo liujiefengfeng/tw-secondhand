@@ -3,6 +3,7 @@ import Price from './Price/Price';
 import Header from './Header/Header';
 import ButtonWithColor from './ButtonWithColor/ButtonWithColor';
 import User from './User/User';
+import ProductDetail from './ProductDetail/ProdcutDetail';
 
 export {
   Logo,
@@ -10,4 +11,5 @@ export {
   Header,
   ButtonWithColor,
   User,
+  ProductDetail,
 };
