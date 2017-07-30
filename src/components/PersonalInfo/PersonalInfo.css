@@ -1,0 +1,26 @@
+.personal-info{
+  width: 296px;
+  height: 138px;
+  margin: 0px auto;
+  box-shadow: 1px 1px 8px #CAC4C4;
+  display: flex;
+  align-items: center;
+}
+
+.personal-info .person-info__avatar {
+  margin: auto 50px auto 41px;
+}
+
+.personal-info .person-info__avatar img {
+  height: 74px;
+  width: 74px;
+}
+
+.personal-info .person-info__name {
+  font-size: 18px;
+  height: 25px;
+  line-height: 25px;
+  text-overflow:ellipsis;
+  -o-text-overflow:ellipsis; 
+  overflow: hidden;
+}
