@@ -1,7 +1,8 @@
 import * as React from 'react';
+import {isNull, isUndefined} from 'util';
 import './Product.css';
-import Price from "../Price/Price";
-import {isNull, isUndefined} from "util";
+import Price from '../Price/Price';
+import User from '../User/User';
 
 interface ProductProps {
   image: string;
@@ -24,7 +25,7 @@ export const Product = (props: ProductProps) => {
       <div className="info">
         <Price price={props.price}/>
         {isNull(props.owner) || isUndefined(props.owner) ?
-          <Status isClosed={props.isClosed} /> : <p>{props.owner}</p>}
+          <Status isClosed={props.isClosed} /> : <User name={props.owner} />}
       </div>
     </div>
   );

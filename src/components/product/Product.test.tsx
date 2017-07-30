@@ -1,6 +1,8 @@
 import * as React from 'react';
+import { mount } from 'enzyme';
+import { expect } from 'chai';
+import User from "../User/User";
 import { Product, Status } from './Product';
-import {mount} from 'enzyme';
 
 describe('Product', () => {
   const givenImage = 'https://assets.servedby-buysellads.com/p/manage/asset/id/28536';
@@ -13,7 +15,7 @@ describe('Product', () => {
       isClosed={true}
     />);
 
-    expect(wrapper.find(Status).text()).toEqual('交易关闭');
+    expect(wrapper.find(Status).text()).to.equal('交易关闭');
   });
 
   it('should render close message when owner is empty & isClosed equal false', () => {
@@ -22,6 +24,19 @@ describe('Product', () => {
       price={givenPrice}
     />);
 
-    expect(wrapper.find(Status).text()).toEqual('出售中');
+    expect(wrapper.find(Status).text()).to.equal('出售中');
+  });
+
+  it('should render user instead of close message when owner is exist', () => {
+    const givenOwner = 'Yangjie';
+
+    const wrapper = mount(<Product
+      image={givenImage}
+      price={givenPrice}
+      owner={givenOwner}
+    />);
+
+    expect(wrapper.find(User).text()).to.equal(givenOwner);
+    expect(wrapper.find(Status)).to.have.length(0);
   });
 });
