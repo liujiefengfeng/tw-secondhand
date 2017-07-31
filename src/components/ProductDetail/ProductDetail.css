@@ -1,0 +1,33 @@
+.ProdcutDetail {
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+.product-img {
+  height: 200px;
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.product-brief {
+  display: flex;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.left, .right {
+  flex: 1;
+  margin-left: 10%;
+}
+
+.product-title {
+  text-align: left;
+}
+
+.product-details {
+  padding-right: 10%;
+  padding-left: 10%;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  text-align: left;
+}
