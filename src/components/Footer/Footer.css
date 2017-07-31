@@ -1,0 +1,34 @@
+.footer {
+  height: 44px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #FBE251; 
+}
+
+.footer a {
+  height: 44px;
+  width: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer a.active {
+  background-color: #FFF;
+}
+
+.footer a img.footer__home {
+  height: 28px;
+}
+
+.footer a img.footer__plus {
+  height: 38px;
+  width: 38px;
+  border-radius: 19px;
+}
+
+.footer a img.footer__person {
+  height: 24px;
+}
