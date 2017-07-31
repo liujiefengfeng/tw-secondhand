@@ -4,6 +4,7 @@ import Header from './Header/Header';
 import ButtonWithColor from './ButtonWithColor/ButtonWithColor';
 import User from './User/User';
 import Footer from './Footer/Footer';
+import PersonalInfo from './PersonalInfo/PersonalInfo';
 
 export {
   Logo,
@@ -12,4 +13,5 @@ export {
   ButtonWithColor,
   User,
   Footer,
+  PersonalInfo,
 };
