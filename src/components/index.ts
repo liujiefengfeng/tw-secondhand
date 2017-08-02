@@ -7,6 +7,7 @@ import ProductDetail from './ProductDetail/ProdcutDetail';
 import Footer from './Footer/Footer';
 import PersonalInfo from './PersonalInfo/PersonalInfo';
 import ProductDescribeBox from './ProductDescribeBox/ProductDescribeBox';
+import Input from './Input/Input';
 
 export {
   Logo,
@@ -18,4 +19,5 @@ export {
   Footer,
   PersonalInfo,
   ProductDescribeBox,
+  Input,
 };
