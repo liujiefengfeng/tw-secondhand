@@ -1,0 +1,13 @@
+.ImageUploader {
+  background: lightgray;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.ImageUploader img {
+  width: 10%;
+}
+
+.ImageUploader > input {
+  display: none;
+}
