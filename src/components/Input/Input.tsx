@@ -1,11 +1,8 @@
 import * as React from 'react';
 import './Input.css';
-const MaskedInputElement = require('react-input-mask');
 
-interface InputProps {
+interface InputProps extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
   mask: boolean;
-  placeholder?: string;
-  value?: string;
 }
 
 export default (props: InputProps) => {
@@ -14,8 +11,8 @@ export default (props: InputProps) => {
       <div className="Input">
         {
           mask
-          ? <MaskedInputElement {...rest} />
-          : <input {...rest}/>
+          ? <input type="password" {...rest} />
+          : <input {...rest} />
         }
       </div>
     );
