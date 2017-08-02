@@ -1,0 +1,26 @@
+.RegisterPopup {
+  height: 100%;
+  width: 100%;
+}
+
+.RegisterPopup .content .image {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.RegisterPopup .content .logo {
+  height: 150px;
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.RegisterPopup .content .form {
+  padding-left: 12%;
+  padding-right: 12%;
+}
+
+.RegisterPopup .content .form .item {
+  height: 40px;
+  margin-bottom: 40px;
+}
