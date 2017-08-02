@@ -6,6 +6,7 @@ import User from './User/User';
 import ProductDetail from './ProductDetail/ProdcutDetail';
 import Footer from './Footer/Footer';
 import PersonalInfo from './PersonalInfo/PersonalInfo';
+import ProductDescribeBox from './ProductDescribeBox/ProductDescribeBox';
 
 export {
   Logo,
@@ -16,4 +17,5 @@ export {
   ProductDetail,
   Footer,
   PersonalInfo,
+  ProductDescribeBox,
 };
