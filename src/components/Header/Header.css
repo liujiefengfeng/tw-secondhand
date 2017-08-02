@@ -1,5 +1,29 @@
+.header {
+  height: 44px;
+  display: flex;
+  line-height: 44px;
+  text-align: center;
+  padding-top: 10px;
+}
+
 .header img{
-  width: 20px;
-  height: 20px;
-  float: left;
+  width: 35px;
+  height: 35px;
+}
+
+.header .icon {
+  flex: 1;
+}
+
+.header .space-flex1 {
+  flex: 1;
+}
+
+.header .space-flex2 {
+  flex: 2;
+}
+
+.header .title {
+  flex: 1;
+  font-size: 20px;
 }
