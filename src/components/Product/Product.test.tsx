@@ -7,9 +7,11 @@ import { Product, Status } from './Product';
 describe('Product', () => {
   const givenImage = 'https://assets.servedby-buysellads.com/p/manage/asset/id/28536';
   const givenPrice = '1234';
+  const givenTitle = '我是一只照相机';
 
   it('should render close message when owner is empty & isClosed', () => {
     const wrapper = mount(<Product
+      title={givenTitle}
       image={givenImage}
       price={givenPrice}
       isClosed={true}
@@ -21,6 +23,7 @@ describe('Product', () => {
 
   it('should render close message when owner is empty & isClosed equal false', () => {
     const wrapper = mount(<Product
+      title={givenTitle}
       image={givenImage}
       price={givenPrice}
     />);
@@ -33,6 +36,7 @@ describe('Product', () => {
     const givenOwner = 'Yangjie';
 
     const wrapper = mount(<Product
+      title={givenTitle}
       image={givenImage}
       price={givenPrice}
       owner={givenOwner}
