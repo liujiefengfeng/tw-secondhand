@@ -12,10 +12,12 @@ interface HeaderProps {
 
 export default (props: HeaderProps) => (
   <div className={'header'}>
-    <div>
+    <div className="icon">
       {renderIcon(props.closeIcon, props.goBackIcon)}
     </div>
-    <div>{props.headerContext}</div>
+    <div className="space-flex1" />
+    <div className="title">{props.headerContext}</div>
+    <div className="space-flex2" />
   </div>
 );
 
