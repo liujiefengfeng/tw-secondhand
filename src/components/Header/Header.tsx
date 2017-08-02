@@ -8,11 +8,12 @@ interface HeaderProps {
   closeIcon?: boolean;
   goBackIcon?: boolean;
   headerContext: string;
+  onClick?: () => void;
 }
 
 export default (props: HeaderProps) => (
   <div className={'header'}>
-    <div className="icon">
+    <div className="icon" onClick={props.onClick}>
       {renderIcon(props.closeIcon, props.goBackIcon)}
     </div>
     <div className="space-flex1" />
