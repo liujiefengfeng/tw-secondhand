@@ -16,10 +16,10 @@ export default (props: RegisterPopupProps) => (
     <div className="content">
       <div className="image"><img className="logo" src={logo} alt="logo" /></div>
       <form className="form" onSubmit={props.onSubmit}>
-        <Input className="item" placeholder="用户名" mask={false}/>
+        <Input className="item" placeholder="用户名" mask={false} />
         <Input className="item" placeholder="密码" mask={true} />
         <Input className="item" placeholder="确认密码" mask={true} />
-        <ButtonWithColor buttonContent="注册" />
+        <ButtonWithColor type="submit" buttonContent="注册" />
       </form>
     </div>
   </div>
