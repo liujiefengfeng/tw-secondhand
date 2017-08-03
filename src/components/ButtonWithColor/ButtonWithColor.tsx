@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as classNames from 'classnames';
 import './ButtonWithColor.css';
 
-interface ButtonWithColorProps {
+interface ButtonWithColorProps extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>{
     isGreyButton?: boolean;
     buttonContent: string;
 }

@@ -8,6 +8,7 @@ import Footer from './Footer/Footer';
 import PersonalInfo from './PersonalInfo/PersonalInfo';
 import ProductDescribeBox from './ProductDescribeBox/ProductDescribeBox';
 import Input from './Input/Input';
+import RegisterPopup from './RegisterPopup/RegisterPopup';
 
 export {
   Logo,
@@ -20,4 +21,5 @@ export {
   PersonalInfo,
   ProductDescribeBox,
   Input,
+  RegisterPopup,
 };
