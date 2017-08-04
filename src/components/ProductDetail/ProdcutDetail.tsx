@@ -4,17 +4,18 @@ import User from '../User/User';
 import Price from '../Price/Price';
 import ButtonWithColor from '../ButtonWithColor/ButtonWithColor';
 
-interface ProductDetailProps {
+export interface ProductDetailProps {
   img: string;
   title: string;
   price: string;
   user: string;
   details: string;
+  onClick: () => void;
 }
 
-export default (props: ProductDetailProps) => (
-  <div className="ProdcutDetail">
-    <img className="product-img" src={props.img} />
+export const ProductDetail = (props: ProductDetailProps) => (
+  <div className="ProductDetail">
+    <div className="image"><img className="product-img" src={props.img} alt="商品详情图片"/></div>
     <div className="product-brief">
       <div className="left"><div className="product-title">{props.title}</div></div>
       <div className="right">
@@ -25,6 +26,6 @@ export default (props: ProductDetailProps) => (
     <div className="product-details">{props.details.split('\n').map((detail, index) => {
       return <div key={index}>{detail}</div>;
     })}</div>
-    <ButtonWithColor buttonContent="立即购买" />
+    <ButtonWithColor buttonContent="立即购买" onClick={props.onClick} />
   </div>
 );

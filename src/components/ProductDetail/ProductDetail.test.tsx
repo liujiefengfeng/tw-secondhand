@@ -1,19 +1,20 @@
 import * as React from 'react';
 import { mount } from 'enzyme';
 import { expect } from 'chai';
-import ProductDetail from './ProdcutDetail';
+import * as P from './ProdcutDetail';
 
 describe('ProductDetail', () => {
   let productDetail;
 
   beforeEach(() => {
     productDetail = mount(
-      <ProductDetail
+      <P.ProductDetail
         img={'./detail.png'}
         user={'Yangjie'}
         title={'Baby carriage'}
         price={'1998'}
         details={'产品型号: 520D&nbsp;weight: 15kg'}
+        onClick={() => {}}
       />);
   });
 
