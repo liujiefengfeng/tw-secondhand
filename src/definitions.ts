@@ -63,9 +63,11 @@ export interface ProductsAction extends GeneralAction {
 // STATES
 export type AppState = App;
 export type UserState = User;
+export type ProductsState = Products;
 
 export interface RootState<S> {
     user?: UserState,
     app?: AppState,
+    boughtProducts?: ProductsState,
     router?: ReactRouter.RouteComponentProps<S>,
 }
