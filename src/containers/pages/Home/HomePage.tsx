@@ -23,9 +23,9 @@ const HomePage = (props: HomePageProps<object>) => {
             <p className="App-intro">
                 To get started, edit <code>src/App.tsx</code> and save to reload.
             </p>
-            <p>{user.name ? `User Name: ${user.name}` : 'No User Name.'}</p>
+            <p>{user.username ? `User Name: ${user.username}` : 'No User Name.'}</p>
 
-            <button onClick={() => dispatch(userLogin({username: 'admin', password: 'admin'}))}>
+            <button onClick={() => dispatch(userLogin({username: 'testuser', password: '123456'}))}>
                 Login and get User Name
             </button>
             <p>
