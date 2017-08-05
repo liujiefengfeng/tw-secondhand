@@ -54,6 +54,12 @@ export interface UserAction extends GeneralAction {
     payload?: UserForLogin,
 }
 
+export interface ProductsAction extends GeneralAction {
+  payload?: User;
+  success?: Product[];
+  error?: string;
+}
+
 // STATES
 export type AppState = App;
 export type UserState = User;
