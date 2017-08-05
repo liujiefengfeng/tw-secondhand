@@ -3,6 +3,7 @@ import * as Redux from 'redux';
 
 const initialState: D.UserState = {
     username: '',
+    sessionToken: '',
 };
 
 const userReducer: Redux.Reducer<D.UserState> = (state: D.UserState, action: D.UserAction): D.UserState => {
