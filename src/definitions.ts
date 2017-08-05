@@ -11,7 +11,7 @@ export interface App {
 }
 
 export interface User {
-    name: string;
+    username: string;
 }
 
 export interface UserProfile {
