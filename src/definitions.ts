@@ -12,6 +12,7 @@ export interface App {
 
 export interface User {
     username: string;
+    sessionToken: string;
 }
 
 export interface UserProfile {
@@ -22,6 +23,24 @@ export interface UserProfile {
 export interface UserForLogin {
     username: string;
     password: string;
+}
+
+export interface CreatedUser {
+  username: string;
+  objectId: string;
+}
+
+export interface Product {
+  img: string;
+  name: string;
+  price: string;
+  owner?: CreatedUser;
+  buyer?: CreatedUser;
+  description: string;
+}
+
+export interface Products {
+  [index: number]: Product;
 }
 
 // ACTION CREATORS
