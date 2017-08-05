@@ -23,12 +23,13 @@ const storeConfigure = (history: History) => {
     const storeMiddleware = storage.createMiddleware(engine, [], [
         // White list actions, will save everything if leave blank here
         USER_LOGIN_SUC,
+
     ]);
 
     const createStoreWithMiddleware = applyMiddleware(router, storeMiddleware, ...middlewares)(createStore);
-    
+
     const store = createStoreWithMiddleware(reducer, initialState);
-    
+
     const load = storage.createLoader(engine);
     // will trigger storage load action
     load(store);
