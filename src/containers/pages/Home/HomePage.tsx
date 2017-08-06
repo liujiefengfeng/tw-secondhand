@@ -19,22 +19,25 @@ class HomePage extends React.Component<HomePageProps> {
         this.props.getHomeProducts();
     }
 
+    renderProdcutList = () => {
+        return this.props.products 
+        && this.props.products.map((product: D.Product, index: number) => {
+            const { name, img, price, owner } = product;
+            return (
+                // tslint:disable-next-line:max-line-length
+                <Components.Product title={name} image={img} price={price} owner={owner.username} isClosed={false} key={index} />
+            );
+        });
+    }
+
     render() {
         return (
             <div className="Home">
-                <Components.Header goBackIcon={false} headerContext="精选"/>
+                <Components.Header goBackIcon={false} headerContext="精选" />
                 <div className="Home__body">
-                    {
-                        this.props.products.map((product: D.Product, index: number) => {
-                            const { name, img, price, owner } = product;
-                            return (
-                                // tslint:disable-next-line:max-line-length
-                                <Components.Product title={name} image={img} price={price} owner={owner.username} isClosed={false} key={index} />
-                            );
-                        })
-                    }
+                    {this.renderProdcutList()}
                 </div>
-                <Components.Footer activeMenu={FooterMeum.Home}/>
+                <Components.Footer activeMenu={FooterMeum.Home} />
             </div>
         );
     }
