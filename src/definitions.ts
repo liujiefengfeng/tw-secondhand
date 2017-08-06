@@ -72,7 +72,7 @@ export type HomeProductsState = HomeProducts;
 export interface RootState<S> {
     user?: UserState;
     app?: AppState;
-    boughtProducts?: ProductsState;
+    boughtProducts?: ProductsState;g
     soldProducts?: ProductsState;
     homeProducts?: HomeProductsState;
     router?: ReactRouter.RouteComponentProps<S>;

@@ -2,7 +2,7 @@ import { fromPromise } from 'most';
 import { select, Epic } from 'redux-most';
 
 import * as D from '../../definitions';
-import { boughtProducts } from '../../apis/product';
+import {boughtProducts, soldProducts} from '../../apis/product';
 
 export const BOUGHT_PRODUCTS = 'BOUGHT_PRODUCTS';
 export const SOLD_PRODUCTS = 'SOLD_PRODUCTS';
@@ -23,7 +23,7 @@ const boughtProductsEpic: Epic<D.GeneralAction> = (action$ => action$.thru(selec
   )));
 
 const soldProductsEpic: Epic<D.GeneralAction> = (action$ => action$.thru(select(SOLD_PRODUCTS))
-  .chain((action: D.ProductsAction) => fromPromise(boughtProducts(action.payload.sessionToken)))
+  .chain((action: D.ProductsAction) => fromPromise(soldProducts(action.payload.sessionToken)))
   .map((soldProductsResponse: null | D.Products) => (
     soldProductsResponse
       ? {type: SOLD_PRODUCTS_SUC, success: soldProductsResponse}

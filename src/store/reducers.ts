@@ -9,6 +9,6 @@ export default {
     app,
     user,
     router,
-    products,
     homeProducts,
+    ...products,
 };
