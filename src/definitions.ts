@@ -3,7 +3,6 @@ import * as ReactRouter from 'react-router';
 
 // This file holds our app typings
 
-
 // BUSINESS LOGIC
 export interface App {
     loading: boolean;
@@ -41,15 +40,21 @@ export interface Product {
 
 export type Products = Array<Product>;
 
-// ACTION CREATORS
+export type HomeProducts = {
+    products: Product[]
+};
 
+// ACTION CREATORS
 
 // ACTIONS
 export interface GeneralAction extends Redux.Action {
-    payload?: object,
+    payload?: object;
 }
 export interface UserAction extends GeneralAction {
-    payload?: UserForLogin,
+    payload?: UserForLogin;
+}
+export interface FetchHomeProductsAction extends GeneralAction {
+    payload?: Product[];
 }
 
 export interface ProductsAction extends GeneralAction {
@@ -62,10 +67,12 @@ export interface ProductsAction extends GeneralAction {
 export type AppState = App;
 export type UserState = User;
 export type ProductsState = Products;
+export type HomeProductsState = HomeProducts;
 
 export interface RootState<S> {
-    user?: UserState,
-    app?: AppState,
-    boughtProducts?: ProductsState,
-    router?: ReactRouter.RouteComponentProps<S>,
+    user?: UserState;
+    app?: AppState;
+    boughtProducts?: ProductsState;
+    homeProducts?: HomeProductsState;
+    router?: ReactRouter.RouteComponentProps<S>;
 }

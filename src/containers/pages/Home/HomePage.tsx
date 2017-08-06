@@ -1,40 +1,58 @@
 import * as React from 'react';
 import { connect, DispatchProp } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
-import { push } from 'react-router-redux';
 
 import * as D from '../../../definitions';
 import * as Components from '../../../components';
-import { userLogin } from '../../../modules/user/actions';
 
 import './HomePage.css';
-type HomePageProps<S> = DispatchProp<S> & RouteComponentProps<S> & {
-    user: D.UserState,
-};
+import { getHomeProducts } from '../../../modules/home/actions';
+import FooterMeum from '../../../components/Footer/FooterMenu';
 
-const HomePage = (props: HomePageProps<object>) => {
-    const { dispatch, user } = props;
-    return (
-        <div className="App">
-            <div className="App-header">
-                <Components.Logo />
-                <h2>Welcome to React</h2>
+interface HomePageProps extends DispatchProp<void>, RouteComponentProps<void> {
+    products: D.Product[];
+    getHomeProducts: typeof getHomeProducts;
+}
+
+class HomePage extends React.Component<HomePageProps> {
+    componentDidMount() {
+        this.props.getHomeProducts();
+    }
+
+    renderProdcutList = () => {
+        return this.props.products 
+        && this.props.products.map((product: D.Product, index: number) => {
+            const { name, img, price, owner } = product;
+            return (
+                // tslint:disable-next-line:max-line-length
+                <Components.Product title={name} image={img} price={price} owner={owner.username} isClosed={false} key={index} />
+            );
+        });
+    }
+
+    render() {
+        return (
+            <div className="Home">
+                <Components.Header goBackIcon={false} headerContext="精选" />
+                <div className="Home__body">
+                    {this.renderProdcutList()}
+                </div>
+                <Components.Footer activeMenu={FooterMeum.Home} />
             </div>
-            <p className="App-intro">
-                To get started, edit <code>src/App.tsx</code> and save to reload.
-            </p>
-            <p>{user.username ? `User Name: ${user.username}` : 'No User Name.'}</p>
+        );
+    }
+}
 
-            <button onClick={() => dispatch(userLogin({username: 'testuser', password: '123456'}))}>
-                Login and get User Name
-            </button>
-            <p>
-                <button onClick={() => dispatch(push('about-us'))}>Go to About Us</button>
-            </p>
-        </div>
-    );
-};
+function mapStateToProps(state: D.RootState<object>) {
+    return {
+        products: state.homeProducts.products
+    };
+}
 
-export default connect(
-    (state: D.RootState<object>) => ({user: state.user})
-)(HomePage);
+function mapDispatchToProps(dispatch: (actions: {}) => void) {
+    return {
+        getHomeProducts: () => dispatch(getHomeProducts()),
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
