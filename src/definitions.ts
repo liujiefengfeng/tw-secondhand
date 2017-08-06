@@ -12,6 +12,7 @@ export interface App {
 
 export interface User {
     username: string;
+    sessionToken: string;
 }
 
 export interface UserProfile {
@@ -24,6 +25,22 @@ export interface UserForLogin {
     password: string;
 }
 
+export interface CreatedUser {
+  username: string;
+  objectId: string;
+}
+
+export interface Product {
+  img: string;
+  name: string;
+  price: string;
+  owner?: CreatedUser;
+  buyer?: CreatedUser;
+  description: string;
+}
+
+export type Products = Array<Product>;
+
 // ACTION CREATORS
 
 
@@ -35,12 +52,20 @@ export interface UserAction extends GeneralAction {
     payload?: UserForLogin,
 }
 
+export interface ProductsAction extends GeneralAction {
+  payload?: User;
+  success?: Product[];
+  error?: string;
+}
+
 // STATES
 export type AppState = App;
 export type UserState = User;
+export type ProductsState = Products;
 
 export interface RootState<S> {
     user?: UserState,
     app?: AppState,
+    boughtProducts?: ProductsState,
     router?: ReactRouter.RouteComponentProps<S>,
 }

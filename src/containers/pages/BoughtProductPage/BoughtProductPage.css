@@ -1,0 +1,13 @@
+.bought-products .content {
+  height: calc(100vh - 44px - 54px);
+  display: flex;
+  flex-direction: column;
+}
+
+.bought-products .content .product {
+  width: 100%;
+}
+
+.bought-products .footer {
+  margin-bottom: 0;
+}

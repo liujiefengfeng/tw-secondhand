@@ -10,6 +10,7 @@ import ProductDescribeBox from './ProductDescribeBox/ProductDescribeBox';
 import Input from './Input/Input';
 import RegisterPopup from './RegisterPopup/RegisterPopup';
 import ProductDetailsPopup from './ProductDetailsPopup/ProductDetailsPopup';
+import {Product} from './Product/Product';
 
 const ProductDetail = P.ProductDetail;
 export {
@@ -25,4 +26,5 @@ export {
   Input,
   RegisterPopup,
   ProductDetailsPopup,
+  Product,
 };
