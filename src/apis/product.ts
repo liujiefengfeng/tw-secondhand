@@ -17,10 +17,9 @@ export const boughtProducts = (sessionToken: string): Promise<D.Products> => {
   });
 };
 
-export const homeProducts = (sessionToken: string): Promise<D.Products> => {
+export const homeProducts = (): Promise<D.Products> => {
   const response = fetch('http://secondhand.leanapp.cn/products/', {
     method: 'GET',
-    body: JSON.stringify({sessionToken}),
     headers: {
       'Content-Type': 'application/json'
     },
