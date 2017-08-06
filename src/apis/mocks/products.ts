@@ -42,4 +42,34 @@ const boughtProducts = [{
   updatedAt: '2017-07-30T14:06:53.158Z'
 }];
 
+const homeProducts = [
+  {
+    'description': 'CD',
+    'name': 'CD',
+    'price': '666',
+    'owner': {
+      'username': 'warner',
+      'objectId': '59809742128fe100564f0d24'
+    },
+    'img': 'http://ac-o3K0VdL1.clouddn.com/0864c6db9feb2b5b25af.jpg',
+    'objectId': '59851ffaa22b9d006da10f78',
+    'createdAt': '2017-08-05T01:31:38.138Z',
+    'updatedAt': '2017-08-05T01:31:38.138Z'
+  },
+  {
+    'description': '电影票',
+    'name': '战狼2',
+    'price': '50',
+    'owner': {
+      'username': 'test1',
+      'objectId': '598029018d6d810058f95684'
+    },
+    'img': 'http://ac-o3K0VdL1.clouddn.com/e9dc3c720e46a499714f.jpg',
+    'objectId': '59829705a0bb9f005857afc2',
+    'createdAt': '2017-08-03T03:22:45.450Z',
+    'updatedAt': '2017-08-03T03:22:45.450Z'
+  }
+];
+
 fetchMock.mock('http://secondhand.leanapp.cn/products/bought', {status: 200, body: boughtProducts}, {method: 'GET'});
+fetchMock.mock('http://secondhand.leanapp.cn/products/', {status: 200, body: homeProducts}, {method: 'GET'});
