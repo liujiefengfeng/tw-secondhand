@@ -73,6 +73,7 @@ export interface RootState<S> {
     user?: UserState;
     app?: AppState;
     boughtProducts?: ProductsState;
+    soldProducts?: ProductsState;
     homeProducts?: HomeProductsState;
     router?: ReactRouter.RouteComponentProps<S>;
 }
