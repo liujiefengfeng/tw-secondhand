@@ -42,4 +42,4 @@ const boughtProducts = [{
   updatedAt: '2017-07-30T14:06:53.158Z'
 }];
 
-fetchMock.mock('.http://secondhand.leanapp.cn/products/bought', boughtProducts, {method: 'GET'});
+fetchMock.mock('http://secondhand.leanapp.cn/products/bought', {status: 200, body: boughtProducts}, {method: 'GET'});
