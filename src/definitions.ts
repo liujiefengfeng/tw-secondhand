@@ -39,9 +39,7 @@ export interface Product {
   description: string;
 }
 
-export interface Products {
-  [index: number]: Product;
-}
+export type Products = Array<Product>;
 
 // ACTION CREATORS
 
