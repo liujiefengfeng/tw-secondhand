@@ -7,6 +7,7 @@ import * as Components from '../../../components';
 
 import './HomePage.css';
 import { getHomeProducts } from '../../../modules/home/actions';
+import FooterMeum from '../../../components/Footer/FooterMenu';
 
 interface HomePageProps extends DispatchProp<void>, RouteComponentProps<void> {
     products: D.Product[];
@@ -33,7 +34,7 @@ class HomePage extends React.Component<HomePageProps> {
                         })
                     }
                 </div>
-                <Components.Footer />
+                <Components.Footer activeMenu={FooterMeum.Home}/>
             </div>
         );
     }
