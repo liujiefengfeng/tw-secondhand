@@ -41,6 +41,42 @@ const boughtProducts = [{
   createdAt: '2017-07-27T10:56:52.982Z',
   updatedAt: '2017-07-30T14:06:53.158Z'
 }];
+const soldProducts = [
+  {
+    description: 'very nice iphone 6s',
+    name: 'iphone 8s',
+    buyer: {
+      username: 'zenglei',
+      objectId: '596dcde4fe88c2c1d4117a96'
+    },
+    price: '3000',
+    owner: {
+      username: 'testuser',
+      objectId: '596de9a5570c35005b513e5c'
+    },
+    img: 'http://ac-o3K0VdL1.clouddn.com/e1443c4138e969483933.jpeg',
+    objectId: '597ee7daa0bb9f005828a02e',
+    createdAt: '2017-07-31T08:18:34.408Z',
+    updatedAt: '2017-08-02T04:06:12.402Z'
+  },
+  {
+    description: '9成新！',
+    name: 'ipad2',
+    buyer: {
+      username: 'zenglei',
+      objectId: '596dcde4fe88c2c1d4117a96'
+    },
+    price: '1000',
+    owner: {
+      username: 'testuser',
+      objectId: '596de9a5570c35005b513e5c'
+    },
+    img: 'http://ac-o3k0vdl1.clouddn.com/48b4b293ef82b71678af.jpg',
+    objectId: '5981223e128fe1005653c01e',
+    createdAt: '2017-08-02T00:52:14.129Z',
+    updatedAt: '2017-08-02T01:09:23.934Z'
+  }
+];
 
 const homeProducts = [
   {
@@ -72,4 +108,6 @@ const homeProducts = [
 ];
 
 fetchMock.mock('http://secondhand.leanapp.cn/products/bought', {status: 200, body: boughtProducts}, {method: 'GET'});
+fetchMock.mock('http://secondhand.leanapp.cn/products/owned', {status: 200, body: soldProducts}, {method: 'GET'});
 fetchMock.mock('http://secondhand.leanapp.cn/products/', {status: 200, body: homeProducts}, {method: 'GET'});
+
