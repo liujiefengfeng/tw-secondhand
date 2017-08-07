@@ -48,17 +48,17 @@ export const homeProducts = (): Promise<D.Products> => {
 };
 
 export const uploadImage = (sessionToken: string, fileData: string): Promise<string> => {
+  let formData = new FormData();
+  formData.append('img', fileData);
+
+  let header = new Headers();
+  header.append('sessionToken', 'hnknhew0gglhe3uczxbvva4rf');
+
   const response = fetch('http://secondhand.leanapp.cn/products/upload', {
     method: 'POST',
-    body: JSON.stringify({
-      sessionToken,
-      fileData,
-    }),
-    headers: {
-      'Content-Type': 'multipart/form-data'
-    },
+    body: formData,
+    headers: header,
   });
-
   return response.then((Response) => {
     if (Response.status === 200) {
       return Response.json();

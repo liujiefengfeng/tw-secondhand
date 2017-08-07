@@ -209,6 +209,9 @@ const homeProducts = [
   }
 ];
 
+const imageUrl = 'http://ac-o3k0vdl1.clouddn.com/ede51f1e171d8694c147.png';
+
 fetchMock.mock('http://secondhand.leanapp.cn/products/bought', {status: 200, body: boughtProducts}, {method: 'GET'});
 fetchMock.mock('http://secondhand.leanapp.cn/products/owned', {status: 200, body: soldProducts}, {method: 'GET'});
 fetchMock.mock('http://secondhand.leanapp.cn/products/', {status: 200, body: homeProducts}, {method: 'GET'});
+fetchMock.mock('http://secondhand.leanapp.cn/products/upload', {status: 200, body: imageUrl}, {method: 'POST'});
