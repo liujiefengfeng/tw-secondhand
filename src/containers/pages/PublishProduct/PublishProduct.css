@@ -1,0 +1,31 @@
+.publishProduct {
+  text-align: center;
+  height: calc(100vh - 44px - 54px);
+}
+
+.publishProduct .publish__uploader{
+  padding:8px 0px;
+}
+  
+.publishProduct .publish__input-group {
+  margin: 0px auto;
+  width: 60%;
+}  
+
+.publish__input-group .input-group__input {
+  margin-top: 20px;
+}
+
+.publish__input-group .input-group__textarea {
+  width: 100%;
+  height: 60px;
+  margin-top: 54px;
+  font-size: 16px;
+  border: 1px solid #979797;
+}
+
+.publish__input-group .input-group__button {
+  margin-top: 65px;
+  width: 100%;
+}
+
