@@ -23,7 +23,7 @@ export const Status = ({isClosed}) => {
 export const Product = (props: ProductProps) => {
   return (
     <div className={classNames({'product': true}, {'grey': props.isClosed})}>
-      <img src={props.image}/>
+      <img className="image" src={props.image}/>
       <div className="info">
         <p className="message">{props.title}</p>
         <Price price={props.price}/>
@@ -33,5 +33,3 @@ export const Product = (props: ProductProps) => {
     </div>
   );
 };
-
-
