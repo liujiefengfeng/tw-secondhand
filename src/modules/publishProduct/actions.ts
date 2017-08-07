@@ -13,10 +13,9 @@ export const uploadProductImage =
         ({ type: UPLOAD_IMAGE, payload: { user, fileData } });
 
 const uploadProductImageEpic: Epic<D.GeneralAction> = (action$) => action$.thru(select(UPLOAD_IMAGE))
-    .chain((action: D.UploadImageAction) => fromPromise(
-        uploadImage(action.payload.user.sessionToken, action.payload.fileData))
-    )
-    .map((uploadImageResponse: null | string) => {
+    .chain((action: D.UploadImageAction) =>
+        fromPromise(uploadImage(action.payload.user.sessionToken, action.payload.fileData))
+    ).map((uploadImageResponse: null | string) => {
         return (
             uploadImageResponse
                 ? { type: UPLOAD_IMAGE_SUC, payload: { url: uploadImageResponse } }

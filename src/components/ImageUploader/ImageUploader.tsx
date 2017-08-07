@@ -1,20 +1,15 @@
 import * as React from 'react';
 
-import * as D from '../../definitions';
 import './ImageUploader.css';
 const arrowUpUpload = require('./arrow_up_upload.png');
 
 interface ImageProps {
-  uploadImage: (user: D.User, fileData: string) => void;
+  uploadImage: (fileData: string) => void;
 }
 
 const upload = (e, callback) => {
   const file = e.target.files[0];
-  const reader = new FileReader();
-  reader.onload = function () {
-    callback(reader.result);
-  };
-  reader.readAsText(file);
+  callback(file);
 };
 　
 export const ImageUploader = (props: ImageProps) => (

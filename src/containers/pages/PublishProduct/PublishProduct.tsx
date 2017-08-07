@@ -9,15 +9,14 @@ import './PublishProduct.css';
 import { uploadProductImage } from '../../../modules/publishProduct/actions';
 import { ImageUploader } from '../../../components/ImageUploader/ImageUploader';
 
-interface HomePageProps extends DispatchProp<void>, RouteComponentProps<void> {
+interface PublishProductPageProps extends DispatchProp<void>, RouteComponentProps<void> {
     user: D.User;
-    uploadProductImage: (user: D.User, fileData: string) => void;
+    uploadProductImage: typeof uploadProductImage;
 }
 
-class PublishProduct extends React.Component<HomePageProps> {
-    _uploadImage = () => {
-        return (user: D.User, fileData: string) =>
-            ({});
+class PublishProduct extends React.Component<PublishProductPageProps> {
+    _uploadImage = (fileData: string) => {
+        this.props.uploadProductImage(this.props.user, fileData);
     }
     _publishProd = () => {
         return;
@@ -29,14 +28,14 @@ class PublishProduct extends React.Component<HomePageProps> {
                 <Components.Header closeIcon={true} headerContext="发布宝贝" />
                 <div>
                     <div className="publish__uploader">
-                        <ImageUploader uploadImage={this._uploadImage()} />
+                        <ImageUploader uploadImage={this._uploadImage} />
                     </div>
                     <div className="publish__input-group">
                         <Components.Input mask={false} placeholder="商品名称" className="input-group__input" />
                         <Components.Input mask={false} placeholder="售价￥" className="input-group__input" />
                         <Components.ProductDescribeBox className="input-group__textarea" />
                         <div className="input-group__button">
-                            <Components.ButtonWithColor buttonContent="开始出售" onClick={this._publishProd}/>
+                            <Components.ButtonWithColor buttonContent="开始出售" onClick={this._publishProd} />
                         </div>
 
                     </div>
