@@ -1,9 +1,11 @@
 import * as React from 'react';
+
+import * as D from '../../definitions';
 import './ImageUploader.css';
 const arrowUpUpload = require('./arrow_up_upload.png');
 
 interface ImageProps {
-  uploadImage: (fileData: string) => void;
+  uploadImage: (user: D.User, fileData: string) => void;
 }
 
 const upload = (e, callback) => {
@@ -17,10 +19,10 @@ const upload = (e, callback) => {
 　
 export const ImageUploader = (props: ImageProps) => (
   <div className="ImageUploader">
-    <label htmlFor="file-input">
-      <p>点击上传图片</p>
-      <img src={arrowUpUpload} />
-    </label>
-    <input id="file-input" type="file" accept='image/*' onChange={(e) => upload(e, props.uploadImage)} />
+     <label htmlFor="file-input">
+       <p>点击上传图片</p> 
+       <img src={arrowUpUpload} /> 
+    </label> 
+     <input id="file-input" type="file" accept="image/*" onChange={(e) => upload(e, props.uploadImage)} /> 
   </div>
 );
