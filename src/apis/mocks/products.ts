@@ -110,4 +110,3 @@ const homeProducts = [
 fetchMock.mock('http://secondhand.leanapp.cn/products/bought', {status: 200, body: boughtProducts}, {method: 'GET'});
 fetchMock.mock('http://secondhand.leanapp.cn/products/owned', {status: 200, body: soldProducts}, {method: 'GET'});
 fetchMock.mock('http://secondhand.leanapp.cn/products/', {status: 200, body: homeProducts}, {method: 'GET'});
-
