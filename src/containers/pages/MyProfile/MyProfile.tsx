@@ -16,7 +16,7 @@ const MyProfile = (props: MyProfileProps<object>) => {
   
   return (
     <div className="my-profile">
-      <Header headerContext={'个人信息'}/>
+      <Header headerContext={'个人信息'} goBackIcon={true}/>
       <PersonalInfo personName={user.username}/>
       <div className="personal-info-button">
         <ButtonWithColor buttonContent={'已买宝贝'}/>
