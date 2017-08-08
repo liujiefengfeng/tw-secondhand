@@ -2,7 +2,7 @@ import * as React from 'react';
 import { connect, DispatchProp } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 import * as D from '../../../definitions';
-import * as Components from '../../../components';
+import { Header, PersonalInfo, ButtonWithColor, Footer } from '../../../components';
 import FooterMenu from '../../../components/Footer/FooterMenu';
 
 import './MyProfile.css';
@@ -16,18 +16,18 @@ const MyProfile = (props: MyProfileProps<object>) => {
   
   return (
     <div className="my-profile">
-      <Components.Header headerContext={'个人信息'}/>
-      <Components.PersonalInfo personName={user.username}/>
+      <Header headerContext={'个人信息'}/>
+      <PersonalInfo personName={user.username}/>
       <div className="personal-info-button">
-        <Components.ButtonWithColor buttonContent={'已买宝贝'}/>
+        <ButtonWithColor buttonContent={'已买宝贝'}/>
       </div>
       <div className="personal-info-button">
-        <Components.ButtonWithColor buttonContent={'出售宝贝'}/>
+        <ButtonWithColor buttonContent={'出售宝贝'}/>
       </div>
       <div className="personal-info-button">
-        <Components.ButtonWithColor buttonContent={'退出登录'}/>
+        <ButtonWithColor buttonContent={'退出登录'}/>
       </div>
-      <Components.Footer activeMenu={FooterMenu.Person}/>
+      <Footer activeMenu={FooterMenu.Person}/>
     </div>
   );
 };
