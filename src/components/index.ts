@@ -9,6 +9,7 @@ import PersonalInfo from './PersonalInfo/PersonalInfo';
 import ProductDescribeBox from './ProductDescribeBox/ProductDescribeBox';
 import Input from './Input/Input';
 import RegisterPopup from './RegisterPopup/RegisterPopup';
+import { LoginPopup } from  './LoginPopup/LoginPopup';
 import ProductDetailsPopup from './ProductDetailsPopup/ProductDetailsPopup';
 import { Product } from './Product/Product';
 
@@ -27,4 +28,5 @@ export {
   RegisterPopup,
   ProductDetailsPopup,
   Product,
+  LoginPopup,
 };
