@@ -8,7 +8,7 @@ import BoughtProductsPage from '../containers/pages/BoughtProductPage/BoughtProd
 import SoldProductsPage from '../containers/pages/SoldProductsPage/SoldProductsPage';
 
 const router = (
-    <div>
+    <div className="app-router">
         <Route exact={true} path="/" component={HomePage}/>
         <Route path="/my-profile" component={MyProfilePage}/>
         <Route path="/my-profile/bought-products" component={BoughtProductsPage}/>
