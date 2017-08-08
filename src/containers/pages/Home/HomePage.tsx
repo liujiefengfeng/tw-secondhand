@@ -9,12 +9,14 @@ import { Product, Header, Footer, ProductDetailsPopup, LoginPopup, RegisterPopup
 
 import './HomePage.css';
 import { getHomeProducts } from '../../../modules/home/actions';
+import { userLogin } from '../../../modules/user/actions';
 import FooterMeum from '../../../components/Footer/FooterMenu';
 
 interface HomePageProps extends DispatchProp<void>, RouteComponentProps<void> {
-  isUserLogin: boolean;
-  products: D.ProductDetail[];
+    isUserLogin: boolean;
+    products: D.ProductDetail[];
     getHomeProducts: typeof getHomeProducts;
+    userLogin: any;
 }
 
 interface HomePageStates {
@@ -37,6 +39,16 @@ class HomePage extends React.Component<HomePageProps, HomePageStates> {
     
     componentDidMount() {
         this.props.getHomeProducts();
+    }
+    
+    componentWillReceiveProps( nextProps: HomePageProps ) {
+        if (nextProps.isUserLogin !== this.props.isUserLogin) {
+          this.setState({
+            showProductDetail: false,
+            showLogin: false,
+            showRegister: false
+          });
+        }
     }
     
     clickProductItem = (productIndex) => {
@@ -65,7 +77,7 @@ class HomePage extends React.Component<HomePageProps, HomePageStates> {
     
     render() {
         const {showProductDetail, showLogin, showRegister} = this.state;
-        
+        const { userLogin } = this.props;
         return (
           <div className="HomeAndPopup">
               <div className={classNames('Home', {'hidden-home': showProductDetail || showLogin || showRegister})} >
@@ -89,7 +101,7 @@ class HomePage extends React.Component<HomePageProps, HomePageStates> {
                 onIconClick={() => this.setState({showProductDetail: false})}
               />
             <LoginPopup
-              onSubmit={_.noop}
+              onSubmit={userLogin}
               isActive={showLogin}
               goToRegister={() => this.setState({showLogin: false, showRegister: true})}
               onIconClick={() => this.setState({showLogin: false})}
@@ -122,6 +134,7 @@ function mapStateToProps(state: D.RootState<object>) {
 function mapDispatchToProps(dispatch: (actions: {}) => void) {
     return {
         getHomeProducts: () => dispatch(getHomeProducts()),
+        userLogin: (User: D.UserForLogin) => dispatch(userLogin(User))
     };
 }
 
