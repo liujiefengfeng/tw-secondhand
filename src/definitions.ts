@@ -38,6 +38,14 @@ export interface Product {
   description: string;
 }
 
+export interface ProductDetail {
+  img: string;
+  title: string;
+  price: string;
+  owner: string;
+  details: string;
+}
+
 export type Products = Array<Product>;
 
 export type HomeProducts = {
