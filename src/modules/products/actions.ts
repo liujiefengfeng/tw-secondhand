@@ -2,7 +2,7 @@ import { fromPromise } from 'most';
 import { select, Epic } from 'redux-most';
 
 import * as D from '../../definitions';
-import {boughtProducts, soldProducts} from '../../apis/product';
+import { boughtProducts, soldProducts } from '../../apis/product';
 
 export const BOUGHT_PRODUCTS = 'BOUGHT_PRODUCTS';
 export const SOLD_PRODUCTS = 'SOLD_PRODUCTS';

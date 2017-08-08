@@ -25,14 +25,14 @@ class SoldProductPage extends React.Component<SoldProductPageProps> {
       <div className="content">
         {
           soldProducts &&
-          soldProducts.map(product => {
+          soldProducts.map((product, index) => {
             const productProps = {
               title: product.name,
               image: product.img,
               price: product.price,
               owner: product.owner.username
             };
-            return <Product {...productProps} />;
+            return <Product {...productProps} key={index}/>;
           })
         }
       </div>
