@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { connect, DispatchProp } from 'react-redux';
+import { push } from 'react-router-redux';
 import { RouteComponentProps } from 'react-router';
 import * as D from '../../../definitions';
 import { Header, PersonalInfo, ButtonWithColor, Footer } from '../../../components';
@@ -13,16 +14,16 @@ type MyProfileProps<S> = DispatchProp<object> & RouteComponentProps<object> & {
 
 const MyProfile = (props: MyProfileProps<object>) => {
   const { user } = props;
-  
+
   return (
     <div className="my-profile">
       <Header headerContext={'个人信息'} goBackIcon={true}/>
       <PersonalInfo personName={user.username}/>
       <div className="personal-info-button">
-        <ButtonWithColor buttonContent={'已买宝贝'}/>
+        <ButtonWithColor buttonContent={'已买宝贝'} onClick={() => props.dispatch(push('/bought-products'))}/>
       </div>
       <div className="personal-info-button">
-        <ButtonWithColor buttonContent={'出售宝贝'}/>
+        <ButtonWithColor buttonContent={'出售宝贝'} onClick={() => props.dispatch(push('/sold-out'))}/>
       </div>
       <div className="personal-info-button">
         <ButtonWithColor buttonContent={'退出登录'}/>
