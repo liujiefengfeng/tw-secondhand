@@ -211,7 +211,26 @@ const homeProducts = [
 
 const imageUrl = 'http://ac-o3k0vdl1.clouddn.com/ede51f1e171d8694c147.png';
 
+const createProductResponse = {
+  'name': 'iphone 6s',
+  'price': '3000',
+  'img': 'http://ac-o3K0VdL1.clouddn.com/e1443c4138e969483933.jpeg',
+  'description': 'very nice iphone 6s',
+  'owner': {
+    '__type': 'Pointer',
+    'className': '_User',
+    'objectId': '59800fd91b69e6006c7bc615'
+  },
+  'objectId': '5989d3e7a0bb9f0058b35402',
+  'createdAt': '2017-08-08T15:08:23.133Z',
+  'updatedAt': '2017-08-08T15:08:23.133Z'
+};
+
 fetchMock.mock('http://secondhand.leanapp.cn/products/bought', {status: 200, body: boughtProducts}, {method: 'GET'});
 fetchMock.mock('http://secondhand.leanapp.cn/products/owned', {status: 200, body: soldProducts}, {method: 'GET'});
 fetchMock.mock('http://secondhand.leanapp.cn/products/', {status: 200, body: homeProducts}, {method: 'GET'});
 fetchMock.mock('http://secondhand.leanapp.cn/products/upload', {status: 200, body: imageUrl}, {method: 'POST'});
+fetchMock.mock('http://secondhand.leanapp.cn/products/create', 
+               {status: 200, body: createProductResponse}, 
+               {method: 'POST'}
+              );

@@ -19,7 +19,7 @@ export const boughtProducts = (sessionToken: string): Promise<D.Products> => {
 export const soldProducts = (sessionToken: string): Promise<D.Products> => {
   const response = fetch('http://secondhand.leanapp.cn/products/owned', {
     method: 'GET',
-    body: JSON.stringify({sessionToken}),
+    body: JSON.stringify({ sessionToken }),
     headers: {
       'Content-Type': 'application/json'
     },
@@ -52,13 +52,31 @@ export const uploadImage = (sessionToken: string, fileData: string): Promise<str
   formData.append('img', fileData);
 
   let header = new Headers();
-  header.append('sessionToken', 'hnknhew0gglhe3uczxbvva4rf');
+  header.append('sessionToken', sessionToken);
 
   const response = fetch('http://secondhand.leanapp.cn/products/upload', {
     method: 'POST',
     body: formData,
     headers: header,
   });
+  return response.then((Response) => {
+    if (Response.status === 200) {
+      return Response.json();
+    }
+    return null;
+  });
+};
+
+export const createProduct = (sessionToken: string, draftProduct: D.DraftProduct): Promise<string> => {
+  let header = new Headers();
+  header.append('sessionToken', sessionToken);
+
+  const response = fetch('http://secondhand.leanapp.cn/products/create', {
+    method: 'POST',
+    body: JSON.stringify(draftProduct),
+    headers: header,
+  });
+
   return response.then((Response) => {
     if (Response.status === 200) {
       return Response.json();
