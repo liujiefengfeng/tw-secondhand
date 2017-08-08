@@ -2,7 +2,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 30px;
 }
 
 .button-with-color button {
@@ -11,7 +10,7 @@
   border: none;
   border-radius: 5px;
   height: 30px;
-  width: 90%;
+  width: 60%;
 }
 
 button.button-grey {

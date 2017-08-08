@@ -3,6 +3,7 @@ import Input from '../Input/Input';
 import Header from '../Header/Header';
 import ButtonWithColor from '../ButtonWithColor/ButtonWithColor';
 import '../RegisterPopup/RegisterPopup.css';
+import './LoginPopup.css';
 const logo = require('../RegisterPopup/logo.png');
 
 interface LoginPopupProps {
@@ -34,8 +35,10 @@ export class LoginPopup extends React.Component<LoginPopupProps, any> {
                    onChange={e => this.setState({username: e.target.value})} />
             <Input className="item" placeholder="密码" mask={true}
                    onChange={e => this.setState({password: e.target.value})} />
-            <ButtonWithColor type="submit" buttonContent="登陆" isGreyButton={!isLoginBtnEnabled} />
-            <ButtonWithColor buttonContent="免费注册" />
+            <div className="login-button">
+              <ButtonWithColor type="submit" buttonContent="登陆" isGreyButton={!isLoginBtnEnabled} />
+              <ButtonWithColor buttonContent="免费注册" />
+            </div>
           </form>
         </div>
       </div>
