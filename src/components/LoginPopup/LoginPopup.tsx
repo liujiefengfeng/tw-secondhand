@@ -5,10 +5,13 @@ import ButtonWithColor from '../ButtonWithColor/ButtonWithColor';
 import '../RegisterPopup/RegisterPopup.css';
 import './LoginPopup.css';
 const logo = require('../RegisterPopup/logo.png');
+import * as classNames from 'classnames';
 
 interface LoginPopupProps {
   onSubmit: (username: string, password: string) => void;
   goToRegister: () => void;
+  onIconClick: () => void;
+  isActive: boolean;
 }
 
 export class LoginPopup extends React.Component<LoginPopupProps, any> {
@@ -26,8 +29,8 @@ export class LoginPopup extends React.Component<LoginPopupProps, any> {
     const isLoginBtnEnabled = this.state.username && this.state.password;
 
     return (
-      <div className="RegisterPopup">
-        <Header closeIcon={true} headerContext="请登录" onClick={this.props.goToRegister}/>
+      <div className={classNames({'HiddenLoginPopup': !this.props.isActive})}>
+        <Header closeIcon={true} headerContext="请登录" onClick={this.props.onIconClick}/>
         <div className="content">
           <div className="image"><img className="logo" src={logo} alt="logo" /></div>
           <form className="form" onSubmit={() => this.onSubmit()}>
@@ -45,7 +48,7 @@ export class LoginPopup extends React.Component<LoginPopupProps, any> {
             />
             <div className="login-button">
               <ButtonWithColor type="submit" buttonContent="登陆" isGreyButton={!isLoginBtnEnabled} />
-              <ButtonWithColor buttonContent="免费注册" />
+              <ButtonWithColor buttonContent="免费注册" onClick={this.props.goToRegister}/>
             </div>
           </form>
         </div>

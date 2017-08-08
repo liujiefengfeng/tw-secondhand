@@ -5,30 +5,31 @@ import { RouteComponentProps } from 'react-router';
 
 import * as classNames from 'classnames';
 import * as D from '../../../definitions';
-import { Product, Header, Footer, ProductDetailsPopup } from '../../../components';
+import { Product, Header, Footer, ProductDetailsPopup, LoginPopup } from '../../../components';
 
 import './HomePage.css';
 import { getHomeProducts } from '../../../modules/home/actions';
 import FooterMeum from '../../../components/Footer/FooterMenu';
 
 interface HomePageProps extends DispatchProp<void>, RouteComponentProps<void> {
-    products: D.ProductDetail[];
+  isUserLogin: boolean;
+  products: D.ProductDetail[];
     getHomeProducts: typeof getHomeProducts;
 }
 
 interface HomePageStates {
-    isUserLogin: boolean;
     displayProduct: object;
     showProductDetail: boolean;
+    showLogin: boolean;
 }
 
 class HomePage extends React.Component<HomePageProps, HomePageStates> {
     constructor(props: HomePageProps) {
         super(props);
         this.state = {
-            isUserLogin: false,
             displayProduct: {},
-            showProductDetail: false
+            showProductDetail: false,
+            showLogin: false
         };
     }
     
@@ -37,10 +38,17 @@ class HomePage extends React.Component<HomePageProps, HomePageStates> {
     }
     
     clickProductItem = (productIndex) => {
+      const {isUserLogin} = this.props;
+      if ( isUserLogin ) {
         this.setState({
-            displayProduct: this.props.products[productIndex],
-            showProductDetail: true
+          displayProduct: this.props.products[productIndex],
+          showProductDetail: true
         });
+      } else {
+        this.setState({
+          showLogin: true
+        });
+      }
     }
 
     renderProdcutList = () => {
@@ -54,11 +62,11 @@ class HomePage extends React.Component<HomePageProps, HomePageStates> {
     }
     
     render() {
-        const {showProductDetail} = this.state;
+        const {showProductDetail, showLogin} = this.state;
         
         return (
           <div className="HomeAndPopup">
-              <div className={classNames('Home', {'hidden-home': showProductDetail})} >
+              <div className={classNames('Home', {'hidden-home': showProductDetail || showLogin})} >
                   <Header goBackIcon={false} headerContext="精选"/>
                   <div className="Home__body">
                       {this.renderProdcutList()}
@@ -78,6 +86,11 @@ class HomePage extends React.Component<HomePageProps, HomePageStates> {
                 isActive={showProductDetail}
                 onIconClick={() => this.setState({showProductDetail: false})}
               />
+            <LoginPopup onSubmit={_.noop}
+                        isActive={showLogin}
+                        goToRegister={_.noop}
+                        onIconClick={() => this.setState({showLogin: false})}
+            />
           </div>
         );
     }
@@ -85,7 +98,8 @@ class HomePage extends React.Component<HomePageProps, HomePageStates> {
 
 function mapStateToProps(state: D.RootState<object>) {
     return {
-        products: _.map(state.homeProducts.products, product => (
+      isUserLogin: !!state.user.sessionToken,
+      products: _.map(state.homeProducts.products, product => (
           {
               img: product.img,
               title: product.name,
