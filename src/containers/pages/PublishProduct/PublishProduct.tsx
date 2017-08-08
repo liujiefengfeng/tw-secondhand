@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { connect, DispatchProp } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
+import { goBack } from 'react-router-redux';
 
 import * as D from '../../../definitions';
 import * as Components from '../../../components';
@@ -14,6 +15,7 @@ interface PublishProductPageProps extends DispatchProp<void>, RouteComponentProp
     currentImageUrl: string;
     uploadProductImage: typeof uploadProductImage;
     publishProduct: typeof publishProduct;
+    goBack: typeof goBack;
 }
 
 class PublishProduct extends React.Component<PublishProductPageProps, D.DraftProduct> {
@@ -40,7 +42,11 @@ class PublishProduct extends React.Component<PublishProductPageProps, D.DraftPro
     render() {
         return (
             <div className="publishProduct">
-                <Components.Header closeIcon={true} headerContext="发布宝贝" />
+                <Components.Header 
+                    closeIcon={true} 
+                    onClick={this.props.goBack}
+                    headerContext="发布宝贝" 
+                />
                 <div>
                     <div className="publish__uploader">
                         <ImageUploader 
@@ -73,7 +79,6 @@ class PublishProduct extends React.Component<PublishProductPageProps, D.DraftPro
 
                     </div>
                 </div>
-                <Components.Footer />
             </div>
         );
     }
@@ -90,6 +95,7 @@ function mapDispatchToProps(dispatch: (actions: {}) => void) {
     return {
         uploadProductImage: (user: D.User, fileData: string) => dispatch(uploadProductImage(user, fileData)),
         publishProduct: (user: D.User, draft: D.DraftProduct) => dispatch(publishProduct(user, draft)),
+        goBack: () => dispatch(goBack()),
     };
 }
 

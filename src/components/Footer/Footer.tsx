@@ -8,7 +8,7 @@ const person = require('./person.png');
 const plus = require('./plus.png');
 
 interface FooterProps {
-    activeMenu?: FooterMeum ;
+    activeMenu?: FooterMeum;
 }
 
 export default (props: FooterProps) => (
@@ -16,14 +16,16 @@ export default (props: FooterProps) => (
         <a href="#" className={isActiveMenu(FooterMeum.Home, props.activeMenu)}>
             <img src={home} className="footer__home" alt="home" />
         </a>
-        <a href="#">
-            <img src={plus} className="footer__plus" alt="plus" />
-        </a>
-      <Link to="/my-profile">
-        <a href="#" className={isActiveMenu(FooterMeum.Person, props.activeMenu)}>
-            <img src={person} className="footer__person" alt="person" />
-        </a>
-      </Link>
+        <Link to="/publish-product">
+            <a href="#">
+                <img src={plus} className="footer__plus" alt="plus" />
+            </a>
+        </Link>
+        <Link to="/my-profile">
+            <a href="#" className={isActiveMenu(FooterMeum.Person, props.activeMenu)}>
+                <img src={person} className="footer__person" alt="person" />
+            </a>
+        </Link>
     </div>
 );
 
