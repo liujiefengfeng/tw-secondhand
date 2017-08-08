@@ -5,7 +5,7 @@ import { RouteComponentProps } from 'react-router';
 
 import * as classNames from 'classnames';
 import * as D from '../../../definitions';
-import { Product, Header, Footer, ProductDetailsPopup, LoginPopup } from '../../../components';
+import { Product, Header, Footer, ProductDetailsPopup, LoginPopup, RegisterPopup } from '../../../components';
 
 import './HomePage.css';
 import { getHomeProducts } from '../../../modules/home/actions';
@@ -21,6 +21,7 @@ interface HomePageStates {
     displayProduct: object;
     showProductDetail: boolean;
     showLogin: boolean;
+    showRegister: boolean;
 }
 
 class HomePage extends React.Component<HomePageProps, HomePageStates> {
@@ -29,7 +30,8 @@ class HomePage extends React.Component<HomePageProps, HomePageStates> {
         this.state = {
             displayProduct: {},
             showProductDetail: false,
-            showLogin: false
+            showLogin: false,
+            showRegister: false
         };
     }
     
@@ -62,11 +64,11 @@ class HomePage extends React.Component<HomePageProps, HomePageStates> {
     }
     
     render() {
-        const {showProductDetail, showLogin} = this.state;
+        const {showProductDetail, showLogin, showRegister} = this.state;
         
         return (
           <div className="HomeAndPopup">
-              <div className={classNames('Home', {'hidden-home': showProductDetail || showLogin})} >
+              <div className={classNames('Home', {'hidden-home': showProductDetail || showLogin || showRegister})} >
                   <Header goBackIcon={false} headerContext="精选"/>
                   <div className="Home__body">
                       {this.renderProdcutList()}
@@ -86,10 +88,16 @@ class HomePage extends React.Component<HomePageProps, HomePageStates> {
                 isActive={showProductDetail}
                 onIconClick={() => this.setState({showProductDetail: false})}
               />
-            <LoginPopup onSubmit={_.noop}
-                        isActive={showLogin}
-                        goToRegister={_.noop}
-                        onIconClick={() => this.setState({showLogin: false})}
+            <LoginPopup
+              onSubmit={_.noop}
+              isActive={showLogin}
+              goToRegister={() => this.setState({showLogin: false, showRegister: true})}
+              onIconClick={() => this.setState({showLogin: false})}
+            />
+            <RegisterPopup
+              onSubmit={_.noop}
+              isActive={showRegister}
+              onIconClick={() => this.setState({showRegister: false})}
             />
           </div>
         );

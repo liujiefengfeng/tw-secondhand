@@ -3,15 +3,18 @@ import Input from '../Input/Input';
 import Header from '../Header/Header';
 import ButtonWithColor from '../ButtonWithColor/ButtonWithColor';
 import './RegisterPopup.css';
+import * as classNames from 'classnames';
+
 const logo = require('./logo.png');
 
 interface RegisterPopupProps {
   onSubmit: () => void;
   onIconClick: () => void;
+  isActive: boolean;
 }
 
 export default (props: RegisterPopupProps) => (
-  <div className="RegisterPopup">
+  <div className={classNames('RegisterPopup', {HiddenRegisterPopup: !props.isActive})}>
     <Header closeIcon={true} headerContext="注册" onClick={props.onIconClick}/>
     <div className="content">
       <div className="image"><img className="logo" src={logo} alt="logo" /></div>
