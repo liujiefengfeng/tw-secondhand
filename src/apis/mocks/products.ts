@@ -16,7 +16,7 @@ const boughtProducts = [{
   buyer: {username: 'testuser', objectId: '596de9a5570c35005b513e5c'},
   price: '2000',
   owner: {username: 'zenglei', objectId: '596dcde4fe88c2c1d4117a96'},
-  img: 'http://ac-o3k0vdl1.clouddn.com/48b4b293ef82b71678af.jpg',
+  img: 'https://support.apple.com/library/content/dam/edam/applecare/images/en_US/ipad/ipadpro/identify-ipad-pro.jpg',
   objectId: '59811f291b69e6006c887c38',
   createdAt: '2017-08-02T00:39:05.476Z',
   updatedAt: '2017-08-02T03:45:01.108Z'
@@ -26,7 +26,7 @@ const boughtProducts = [{
   buyer: {username: 'testuser', objectId: '596de9a5570c35005b513e5c'},
   price: '200',
   owner: {username: 'zenglei', objectId: '596dcde4fe88c2c1d4117a96'},
-  img: 'http://ac-o3K0VdL1.clouddn.com/e1443c4138e969483933.jpeg',
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNcTX_wPb0jH4wzyYPyk3e9POf62qQQKDWd4kkKbm6nMgCsT0-',
   objectId: '59806557fe88c20057f52dde',
   createdAt: '2017-08-01T11:26:15.319Z',
   updatedAt: '2017-08-01T11:36:32.413Z'
@@ -36,7 +36,7 @@ const boughtProducts = [{
   buyer: {username: 'testuser', objectId: '596de9a5570c35005b513e5c'},
   price: '10',
   owner: {username: 'zenglei', objectId: '596dcde4fe88c2c1d4117a96'},
-  img: 'http://ac-o3k0vdl1.clouddn.com/48b4b293ef82b71678af.jpg',
+  img: 'https://support.apple.com/library/content/dam/edam/applecare/images/en_US/ipad/ipadpro/identify-ipad-pro.jpg',
   objectId: '5979c6f4570c3500628c8093',
   createdAt: '2017-07-27T10:56:52.982Z',
   updatedAt: '2017-07-30T14:06:53.158Z'
@@ -54,7 +54,7 @@ const soldProducts = [
       username: 'testuser',
       objectId: '596de9a5570c35005b513e5c'
     },
-    img: 'http://ac-o3K0VdL1.clouddn.com/e1443c4138e969483933.jpeg',
+    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNcTX_wPb0jH4wzyYPyk3e9POf62qQQKDWd4kkKbm6nMgCsT0-',
     objectId: '597ee7daa0bb9f005828a02e',
     createdAt: '2017-07-31T08:18:34.408Z',
     updatedAt: '2017-08-02T04:06:12.402Z'
@@ -71,7 +71,109 @@ const soldProducts = [
       username: 'testuser',
       objectId: '596de9a5570c35005b513e5c'
     },
-    img: 'http://ac-o3k0vdl1.clouddn.com/48b4b293ef82b71678af.jpg',
+    img: 'https://support.apple.com/library/content/dam/edam/applecare/images/en_US/ipad/ipadpro/identify-ipad-pro.jpg',
+    objectId: '5981223e128fe1005653c01e',
+    createdAt: '2017-08-02T00:52:14.129Z',
+    updatedAt: '2017-08-02T01:09:23.934Z'
+  },
+  {
+    description: 'very nice iphone 6s',
+    name: 'iphone 8s',
+    buyer: {
+      username: 'zenglei',
+      objectId: '596dcde4fe88c2c1d4117a96'
+    },
+    price: '3000',
+    owner: {
+      username: 'testuser',
+      objectId: '596de9a5570c35005b513e5c'
+    },
+    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNcTX_wPb0jH4wzyYPyk3e9POf62qQQKDWd4kkKbm6nMgCsT0-',
+    objectId: '597ee7daa0bb9f005828a02e',
+    createdAt: '2017-07-31T08:18:34.408Z',
+    updatedAt: '2017-08-02T04:06:12.402Z'
+  },
+  {
+    description: '9成新！',
+    name: 'ipad2',
+    buyer: {
+      username: 'zenglei',
+      objectId: '596dcde4fe88c2c1d4117a96'
+    },
+    price: '1000',
+    owner: {
+      username: 'testuser',
+      objectId: '596de9a5570c35005b513e5c'
+    },
+    img: 'https://support.apple.com/library/content/dam/edam/applecare/images/en_US/ipad/ipadpro/identify-ipad-pro.jpg',
+    objectId: '5981223e128fe1005653c01e',
+    createdAt: '2017-08-02T00:52:14.129Z',
+    updatedAt: '2017-08-02T01:09:23.934Z'
+  },
+  {
+    description: 'very nice iphone 6s',
+    name: 'iphone 8s',
+    buyer: {
+      username: 'zenglei',
+      objectId: '596dcde4fe88c2c1d4117a96'
+    },
+    price: '3000',
+    owner: {
+      username: 'testuser',
+      objectId: '596de9a5570c35005b513e5c'
+    },
+    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNcTX_wPb0jH4wzyYPyk3e9POf62qQQKDWd4kkKbm6nMgCsT0-',
+    objectId: '597ee7daa0bb9f005828a02e',
+    createdAt: '2017-07-31T08:18:34.408Z',
+    updatedAt: '2017-08-02T04:06:12.402Z'
+  },
+  {
+    description: '9成新！',
+    name: 'ipad2',
+    buyer: {
+      username: 'zenglei',
+      objectId: '596dcde4fe88c2c1d4117a96'
+    },
+    price: '1000',
+    owner: {
+      username: 'testuser',
+      objectId: '596de9a5570c35005b513e5c'
+    },
+    img: 'https://support.apple.com/library/content/dam/edam/applecare/images/en_US/ipad/ipadpro/identify-ipad-pro.jpg',
+    objectId: '5981223e128fe1005653c01e',
+    createdAt: '2017-08-02T00:52:14.129Z',
+    updatedAt: '2017-08-02T01:09:23.934Z'
+  },
+  {
+    description: 'very nice iphone 6s',
+    name: 'iphone 8s',
+    buyer: {
+      username: 'zenglei',
+      objectId: '596dcde4fe88c2c1d4117a96'
+    },
+    price: '3000',
+    owner: {
+      username: 'testuser',
+      objectId: '596de9a5570c35005b513e5c'
+    },
+    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNcTX_wPb0jH4wzyYPyk3e9POf62qQQKDWd4kkKbm6nMgCsT0-',
+    objectId: '597ee7daa0bb9f005828a02e',
+    createdAt: '2017-07-31T08:18:34.408Z',
+    updatedAt: '2017-08-02T04:06:12.402Z'
+  },
+  {
+    description: '9成新！',
+    name: 'ipad2',
+    buyer: {
+      username: 'zenglei',
+      objectId: '596dcde4fe88c2c1d4117a96'
+    },
+    price: '1000',
+    owner: {
+      username: 'testuser',
+      objectId: '596de9a5570c35005b513e5c'
+    },
+    img: 'https://support.apple.com/library/content/dam/edam/applecare/images/en_US/ipad/ipadpro/identify-ipad-pro.jpg',
     objectId: '5981223e128fe1005653c01e',
     createdAt: '2017-08-02T00:52:14.129Z',
     updatedAt: '2017-08-02T01:09:23.934Z'
@@ -110,4 +212,3 @@ const homeProducts = [
 fetchMock.mock('http://secondhand.leanapp.cn/products/bought', {status: 200, body: boughtProducts}, {method: 'GET'});
 fetchMock.mock('http://secondhand.leanapp.cn/products/owned', {status: 200, body: soldProducts}, {method: 'GET'});
 fetchMock.mock('http://secondhand.leanapp.cn/products/', {status: 200, body: homeProducts}, {method: 'GET'});
-
