@@ -3,7 +3,7 @@ import { connect, DispatchProp } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 
 import * as D from '../../../definitions';
-import * as Components from '../../../components';
+import { Product, Header, Footer } from '../../../components';
 
 import './HomePage.css';
 import { getHomeProducts } from '../../../modules/home/actions';
@@ -25,7 +25,7 @@ class HomePage extends React.Component<HomePageProps> {
             const { name, img, price, owner } = product;
             return (
                 // tslint:disable-next-line:max-line-length
-                <Components.Product title={name} image={img} price={price} owner={owner.username} isClosed={false} key={index} />
+                <Product title={name} image={img} price={price} owner={owner.username} isClosed={false} key={index} />
             );
         });
     }
@@ -33,11 +33,11 @@ class HomePage extends React.Component<HomePageProps> {
     render() {
         return (
             <div className="Home">
-                <Components.Header goBackIcon={false} headerContext="精选" />
+                <Header goBackIcon={false} headerContext="精选" />
                 <div className="Home__body">
                     {this.renderProdcutList()}
                 </div>
-                <Components.Footer activeMenu={FooterMeum.Home} />
+                <Footer activeMenu={FooterMeum.Home} />
             </div>
         );
     }
