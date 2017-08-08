@@ -1,13 +1,25 @@
+.bought-products {
+  height: 100vh;
+}
+
 .bought-products .content {
   height: calc(100vh - 44px - 54px);
   display: flex;
   flex-direction: column;
+  overflow: auto;
+  position: absolute;
 }
 
 .bought-products .content .product {
   width: 100%;
 }
 
+.bought-products .header {
+  position: relative;
+  overflow: hidden;
+}
+
 .bought-products .footer {
-  margin-bottom: 0;
+  position: absolute;
+  overflow: hidden;
 }
