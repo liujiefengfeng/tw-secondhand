@@ -8,7 +8,7 @@ export interface ProductDetailProps {
   img: string;
   title: string;
   price: string;
-  user: string;
+  owner: string;
   details: string;
   onClick: () => void;
 }
@@ -20,7 +20,7 @@ export const ProductDetail = (props: ProductDetailProps) => (
       <div className="left"><div className="product-title">{props.title}</div></div>
       <div className="right">
         <Price price={props.price} />
-        <User name={props.user} />
+        <User name={props.owner} />
       </div>
     </div>
     <div className="product-details">{props.details.split('\n').map((detail, index) => {
