@@ -40,7 +40,7 @@ class BoughtProductPage extends React.Component<BoughtProductPageProps> {
   render() {
     return (
       <div className="bought-products">
-        <Header goBackIcon={true} headerContext="已买宝贝" onClick={goBack}/>
+        <Header goBackIcon={true} headerContext="已买宝贝" onClick={() => this.props.dispatch(goBack())}/>
         {this._renderProductsList()}
         <Footer activeMenu={2} />
       </div>
