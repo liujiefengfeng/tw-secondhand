@@ -6,9 +6,7 @@ import { ConnectedRouter } from 'react-router-redux';
 import storeConfigure from './store';
 import routers from './store/routers';
 
-const history = createHistory({
-    basename: 'tw-secondhand'
-});
+const history = createHistory();
 
 const store = storeConfigure(history);
 
