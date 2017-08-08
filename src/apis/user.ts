@@ -11,11 +11,26 @@ export const login = (user: D.UserForLogin): Promise<D.User> => {
       'Content-Type': 'application/json'
     },
   });
-  
+
   return response.then((Response) => {
     if (Response.status === 200) {
       return Response.json();
     }
-    return null;
+  });
+};
+
+export const logout = (sessionToken: string): Promise<D.User> => {
+  const response = fetch('http://secondhand.leanapp.cn/users/logout', {
+    method: 'GET',
+    body: JSON.stringify({sessionToken}),
+    headers: {
+      'Content-Type': 'application/json'
+    },
+  });
+
+  return response.then((Response) => {
+    if (Response.status === 200) {
+      return Response.json();
+    }
   });
 };

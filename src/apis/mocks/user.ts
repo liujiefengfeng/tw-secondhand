@@ -10,3 +10,11 @@ fetchMock.mock(
     method: 'POST'
   }
 );
+
+fetchMock.mock(
+  'http://secondhand.leanapp.cn/users/logout',
+  "You have logged out successfully.",
+  {
+    method: 'GET'
+  }
+);
