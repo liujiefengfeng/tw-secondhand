@@ -5,26 +5,27 @@ import { goBack } from 'react-router-redux';
 
 import * as D from '../../../definitions';
 import { Header, Footer, Product } from '../../../components';
-import { boughtProductsAction } from '../../../modules/products/actions';
-import './BoughtProductPage.css';
+import { soldProductsAction } from '../../../modules/products/actions';
+import './SoldProductsPage.css';
 
-type BoughtProductPageProps = DispatchProp<void> & RouteComponentProps<void> & {
+type SoldProductPageProps = DispatchProp<void> & RouteComponentProps<void> & {
   user: D.UserState;
-  boughtProducts: D.ProductsState;
+  soldProducts: D.ProductsState;
 };
 
-class BoughtProductPage extends React.Component<BoughtProductPageProps> {
+class SoldProductPage extends React.Component<SoldProductPageProps> {
   componentDidMount() {
     const { dispatch, user } = this.props;
-    dispatch(boughtProductsAction(user));
+    dispatch(soldProductsAction(user));
   }
 
   _renderProductsList() {
-    const {boughtProducts} = this.props;
+    const {soldProducts} = this.props;
     return (
       <div className="content">
-        { boughtProducts &&
-          boughtProducts.map(product => {
+        {
+          soldProducts &&
+          soldProducts.map(product => {
             const productProps = {
               title: product.name,
               image: product.img,
@@ -39,8 +40,8 @@ class BoughtProductPage extends React.Component<BoughtProductPageProps> {
   }
   render() {
     return (
-      <div className="bought-products">
-        <Header goBackIcon={true} headerContext="已买宝贝" onClick={goBack}/>
+      <div className="sold-products">
+        <Header goBackIcon={true} headerContext="出售宝贝" onClick={goBack}/>
         {this._renderProductsList()}
         <Footer activeMenu={2} />
       </div>
@@ -49,5 +50,5 @@ class BoughtProductPage extends React.Component<BoughtProductPageProps> {
 }
 
 export default connect(
-  (state: D.RootState<object>) => ({user: state.user, boughtProducts: state.boughtProducts})
-)(BoughtProductPage);
+  (state: D.RootState<object>) => ({user: state.user, soldProducts: state.soldProducts})
+)(SoldProductPage);
