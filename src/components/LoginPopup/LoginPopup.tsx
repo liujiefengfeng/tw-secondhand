@@ -19,7 +19,7 @@ export class LoginPopup extends React.Component<LoginPopupProps, any> {
   }
 
   onSubmit() {
-    this.props.onSubmit(this.state.username, this.state.password)
+    this.props.onSubmit(this.state.username, this.state.password);
   }
 
   render() {
@@ -31,10 +31,18 @@ export class LoginPopup extends React.Component<LoginPopupProps, any> {
         <div className="content">
           <div className="image"><img className="logo" src={logo} alt="logo" /></div>
           <form className="form" onSubmit={() => this.onSubmit()}>
-            <Input className="item" placeholder="用户名" mask={false}
-                   onChange={e => this.setState({username: e.target.value})} />
-            <Input className="item" placeholder="密码" mask={true}
-                   onChange={e => this.setState({password: e.target.value})} />
+            <Input
+              className="item"
+              placeholder="用户名"
+              mask={false}
+              onChange={e => this.setState({username: e.target.value})}
+            />
+            <Input
+              className="item"
+              placeholder="密码"
+              mask={true}
+              onChange={e => this.setState({password: e.target.value})}
+            />
             <div className="login-button">
               <ButtonWithColor type="submit" buttonContent="登陆" isGreyButton={!isLoginBtnEnabled} />
               <ButtonWithColor buttonContent="免费注册" />
