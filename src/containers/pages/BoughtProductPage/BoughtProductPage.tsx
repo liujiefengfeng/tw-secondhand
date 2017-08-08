@@ -6,14 +6,14 @@ import { goBack } from 'react-router-redux';
 import * as D from '../../../definitions';
 import { Header, Footer, Product } from '../../../components';
 import { boughtProductsAction } from '../../../modules/products/actions';
-import './BoughtProductPage.css'
+import './BoughtProductPage.css';
 
-type BoughtProductPageProps<S> = DispatchProp<S> & RouteComponentProps<S> & {
+type BoughtProductPageProps = DispatchProp<void> & RouteComponentProps<void> & {
   user: D.UserState;
   boughtProducts: D.ProductsState;
 };
 
-class BoughtProductPage extends React.Component<BoughtProductPageProps<object>> {
+class BoughtProductPage extends React.Component<BoughtProductPageProps> {
   componentDidMount() {
     const { dispatch, user } = this.props;
     dispatch(boughtProductsAction(user));
@@ -25,13 +25,13 @@ class BoughtProductPage extends React.Component<BoughtProductPageProps<object>> 
       <div className="content">
         { boughtProducts &&
           boughtProducts.map(product => {
-            const ob = {
+            const productProps = {
               title: product.name,
               image: product.img,
               price: product.price,
               owner: product.owner.username
             };
-            return <Product {...ob} />;
+            return <Product {...productProps} />;
           })
         }
       </div>
