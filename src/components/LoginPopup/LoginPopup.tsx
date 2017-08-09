@@ -34,7 +34,7 @@ export class LoginPopup extends React.Component<LoginPopupProps, LoginPopupState
     const isLoginBtnEnabled = username && password;
 
     return (
-      <div className={classNames({'HiddenLoginPopup': !this.props.isActive})}>
+      <div className={classNames('RegisterPopup', {'HiddenLoginPopup': !this.props.isActive})}>
         <Header closeIcon={true} headerContext="请登录" onClick={this.props.onIconClick}/>
         <div className="content">
           <div className="image"><img className="logo" src={logo} alt="logo" /></div>
