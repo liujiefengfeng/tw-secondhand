@@ -25,8 +25,8 @@ export class LoginPopup extends React.Component<LoginPopupProps, LoginPopupState
     this.state = {};
   }
 
-  onSubmit= ( {username, password}) => {
-    this.props.onSubmit(username, password);
+  onSubmit= () => {
+    this.props.onSubmit(this.state.username, this.state.password);
   }
 
   render() {
@@ -34,11 +34,11 @@ export class LoginPopup extends React.Component<LoginPopupProps, LoginPopupState
     const isLoginBtnEnabled = username && password;
 
     return (
-      <div className={classNames({'HiddenLoginPopup': !this.props.isActive})}>
+      <div className={classNames('RegisterPopup', {'HiddenLoginPopup': !this.props.isActive})}>
         <Header closeIcon={true} headerContext="请登录" onClick={this.props.onIconClick}/>
         <div className="content">
           <div className="image"><img className="logo" src={logo} alt="logo" /></div>
-          <form className="form" onSubmit={this.onSubmit.bind(null, {username, password})}>
+          <form className="form" onSubmit={() => this.onSubmit()}>
             <Input
               className="item"
               placeholder="用户名"
