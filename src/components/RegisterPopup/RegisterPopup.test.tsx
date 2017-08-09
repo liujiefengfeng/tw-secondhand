@@ -15,7 +15,7 @@ describe('RegisterPopup', () => {
   beforeEach(() => {
     stubOnSubmit = sinon.stub();
     stubOnIconClick = sinon.stub();
-    registerPopup = mount(<RegisterPopup onSubmit={stubOnSubmit} onIconClick={stubOnIconClick} />);
+    registerPopup = mount(<RegisterPopup onSubmit={stubOnSubmit} onIconClick={stubOnIconClick} isActive={true} />);
   });
 
   afterEach(() => {

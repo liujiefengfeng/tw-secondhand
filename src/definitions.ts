@@ -49,6 +49,14 @@ export interface ImageUrl {
     url: string;
 }
 
+export interface ProductDetail {
+  img: string;
+  title: string;
+  price: string;
+  owner: string;
+  details: string;
+}
+
 export type Products = Array<Product>;
 
 export type PublishProducts = {

@@ -12,14 +12,20 @@ describe('LoginPopup', () => {
   let loginPopup;
   let stubOnSubmit;
   let stubGoToRegister;
+  let stubOnIconClick;
 
   beforeEach(() => {
     stubOnSubmit = sinon.stub();
     stubGoToRegister = sinon.stub();
-    loginPopup = mount(<LoginPopup
-      onSubmit={stubOnSubmit}
-      goToRegister={stubGoToRegister}
-    />);
+    stubOnIconClick = sinon.stub();
+    loginPopup = mount(
+      <LoginPopup
+        onSubmit={stubOnSubmit}
+        goToRegister={stubGoToRegister}
+        onIconClick={stubOnIconClick}
+        isActive={true}
+      />
+    );
   });
 
   afterEach(() => {
@@ -52,7 +58,4 @@ describe('LoginPopup', () => {
     loginPopup.setState({username: 'some', password: 'some'});
     expect(loginPopup.find(ButtonWithColor).at(0).props().isGreyButton).to.equal(false);
   });
-
 });
-
-

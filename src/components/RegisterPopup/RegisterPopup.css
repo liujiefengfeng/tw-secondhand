@@ -3,6 +3,10 @@
   width: 100%;
 }
 
+.HiddenRegisterPopup {
+  display: none;
+}
+
 .RegisterPopup .content .image {
   margin-bottom: 20px;
   margin-top: 20px;

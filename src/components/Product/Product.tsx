@@ -7,10 +7,11 @@ import User from '../User/User';
 
 interface ProductProps {
   title: string;
-  image: string;
+  img: string;
   price: string;
   owner?: string;
   isClosed?: boolean;
+  onClick?: () => void;
 }
 
 export const Status = ({isClosed}) => {
@@ -22,8 +23,8 @@ export const Status = ({isClosed}) => {
 
 export const Product = (props: ProductProps) => {
   return (
-    <div className={classNames({'product': true}, {'grey': props.isClosed})}>
-      <img className="image" src={props.image}/>
+    <div className={classNames({'product': true}, {'grey': props.isClosed})} onClick={props.onClick}>
+      <img className="image" src={props.img}/>
       <div className="info">
         <p className="message">{props.title}</p>
         <Price price={props.price}/>

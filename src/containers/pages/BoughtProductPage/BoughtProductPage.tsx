@@ -27,7 +27,7 @@ class BoughtProductPage extends React.Component<BoughtProductPageProps> {
           boughtProducts.map((product, index) => {
             const productProps = {
               title: product.name,
-              image: product.img,
+              img: product.img,
               price: product.price,
               owner: product.owner.username
             };

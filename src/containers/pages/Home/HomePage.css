@@ -1,10 +1,21 @@
+.HomeAndPopup {
+  height: 100%;
+}
+
 .Home {
+  height: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
   text-align: center;
 }
 
+.hidden-home {
+  display: none;
+}
+
 .Home__body {
-  height: calc(100vh - 44px - 54px);
-  min-height: calc(100vh - 44px - 54px);
+  height: 100%;
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
