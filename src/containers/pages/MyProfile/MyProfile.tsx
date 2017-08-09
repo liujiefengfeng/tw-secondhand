@@ -5,6 +5,7 @@ import { RouteComponentProps } from 'react-router';
 import * as D from '../../../definitions';
 import { Header, PersonalInfo, ButtonWithColor, Footer } from '../../../components';
 import FooterMenu from '../../../components/Footer/FooterMenu';
+import { userLogout } from '../../../modules/user/actions';
 
 import './MyProfile.css';
 
@@ -26,7 +27,7 @@ const MyProfile = (props: MyProfileProps<object>) => {
         <ButtonWithColor buttonContent={'出售宝贝'} onClick={() => props.dispatch(push('/sold-out'))}/>
       </div>
       <div className="personal-info-button">
-        <ButtonWithColor buttonContent={'退出登录'}/>
+        <ButtonWithColor buttonContent={'退出登录'} onClick={() => { props.dispatch(userLogout(user)); props.dispatch(goBack()); }}/>
       </div>
       <Footer activeMenu={FooterMenu.Person}/>
     </div>

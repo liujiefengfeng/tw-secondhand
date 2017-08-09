@@ -74,7 +74,7 @@ export interface GeneralAction extends Redux.Action {
     payload?: object;
 }
 export interface UserAction extends GeneralAction {
-    payload?: UserForLogin;
+    payload?: UserForLogin | User;
 }
 export interface FetchHomeProductsAction extends GeneralAction {
     payload?: Product[];
