@@ -18,6 +18,10 @@ const userReducer: Redux.Reducer<D.UserState> = (state: D.UserState, action: D.U
           return {
             ...initialState
           };
+      case 'USER_REGISTER_SUC':
+        return {
+          ...initialState
+        };
         default:
     }
     return state;
