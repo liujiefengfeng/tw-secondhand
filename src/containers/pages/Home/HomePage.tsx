@@ -9,7 +9,7 @@ import {Product, Header, Footer, ProductDetailsPopup, LoginPopup, RegisterPopup}
 
 import './HomePage.css';
 import {getHomeProducts} from '../../../modules/home/actions';
-import {userLogin} from '../../../modules/user/actions';
+import {userLogin, userRegister} from '../../../modules/user/actions';
 import FooterMeum from '../../../components/Footer/FooterMenu';
 
 interface HomePageProps extends DispatchProp<void>, RouteComponentProps<void> {
@@ -17,6 +17,7 @@ interface HomePageProps extends DispatchProp<void>, RouteComponentProps<void> {
   products: D.ProductDetail[];
   getHomeProducts: typeof getHomeProducts;
   userLogin: (username: string, password: string) => void;
+  userRegister: (username: string, password: string) => void;
 }
 
 interface HomePageStates {
@@ -72,7 +73,7 @@ class HomePage extends React.Component<HomePageProps, HomePageStates> {
           <Product { ...product }
                    isClosed={ false }
                    key={ index }
-                   onClick={ this.clickProductItem.bind(this, index) }
+                   onClick={ () => this.clickProductItem(index) }
           />
         );
       });
@@ -80,7 +81,7 @@ class HomePage extends React.Component<HomePageProps, HomePageStates> {
 
   render() {
     const {showProductDetail, displayProduct, showLogin, showRegister} = this.state;
-    const {userLogin} = this.props;
+    const {userLogin, userRegister} = this.props;
     return (
       <div className="HomeAndPopup">
         <div className={classNames('Home', {'hidden-home': showProductDetail || showLogin || showRegister})}>
@@ -115,8 +116,8 @@ class HomePage extends React.Component<HomePageProps, HomePageStates> {
               />
             : this.state.showRegister
             ? <RegisterPopup
-                onSubmit={ _.noop }
-                isActive={ true }
+                onSubmit={userRegister}
+                isActive={true}
                 onIconClick={() => this.setState({showRegister: false})}
               />
             : null
@@ -147,6 +148,10 @@ function mapDispatchToProps(dispatch: (actions: {}) => void) {
     userLogin: (username: string, password: string) => {
       const user: D.UserForLogin = {username, password};
       dispatch(userLogin(user))
+    },
+    userRegister: (username: string, password: string) => {
+      const user: D.UserForLogin = {username, password};
+      dispatch(userRegister(user))
     }
   };
 }
