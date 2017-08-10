@@ -20,12 +20,12 @@ export const login = (user: D.UserForLogin): Promise<D.User> => {
 };
 
 export const logout = (sessionToken: string): Promise<D.User> => {
+  let header = new Headers();
+  header.append('sessionToken', sessionToken);
+
   const response = fetch('http://secondhand.leanapp.cn/users/logout', {
     method: 'GET',
-    body: JSON.stringify({sessionToken}),
-    headers: {
-      'Content-Type': 'application/json'
-    },
+    headers: header,
   });
 
   return response.then((Response) => {

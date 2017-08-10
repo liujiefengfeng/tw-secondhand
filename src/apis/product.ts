@@ -1,12 +1,12 @@
 import * as D from '../definitions';
 
 export const boughtProducts = (sessionToken: string): Promise<D.Products> => {
+  let header = new Headers();
+  header.append('sessionToken', sessionToken);
+
   const response = fetch('http://secondhand.leanapp.cn/products/bought', {
     method: 'GET',
-    body: JSON.stringify({ sessionToken }),
-    headers: {
-      'Content-Type': 'application/json'
-    },
+    headers: header,
   });
 
   return response.then((Response) => {
@@ -17,12 +17,11 @@ export const boughtProducts = (sessionToken: string): Promise<D.Products> => {
 };
 
 export const soldProducts = (sessionToken: string): Promise<D.Products> => {
+  let header = new Headers();
+  header.append('sessionToken', sessionToken);
   const response = fetch('http://secondhand.leanapp.cn/products/owned', {
     method: 'GET',
-    body: JSON.stringify({ sessionToken }),
-    headers: {
-      'Content-Type': 'application/json'
-    },
+    headers: header,
   });
 
   return response.then((Response) => {
