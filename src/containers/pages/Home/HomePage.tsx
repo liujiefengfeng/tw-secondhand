@@ -16,11 +16,11 @@ interface HomePageProps extends DispatchProp<void>, RouteComponentProps<void> {
   isUserLogin: boolean;
   products: D.ProductDetail[];
   getHomeProducts: typeof getHomeProducts;
-  userLogin: any;
+  userLogin: (username: string, password: string) => void;
 }
 
 interface HomePageStates {
-  displayProduct: object;
+  displayProduct: D.ProductDetail;
   showProductDetail: boolean;
   showLogin: boolean;
   showRegister: boolean;
@@ -30,7 +30,7 @@ class HomePage extends React.Component<HomePageProps, HomePageStates> {
   constructor(props: HomePageProps) {
     super(props);
     this.state = {
-      displayProduct: {},
+      displayProduct: null,
       showProductDetail: false,
       showLogin: false,
       showRegister: false
@@ -51,7 +51,7 @@ class HomePage extends React.Component<HomePageProps, HomePageStates> {
     }
   }
 
-  clickProductItem = (productIndex) => {
+  clickProductItem(productIndex){
     const {isUserLogin} = this.props;
     if (isUserLogin) {
       this.setState({
@@ -65,18 +65,21 @@ class HomePage extends React.Component<HomePageProps, HomePageStates> {
     }
   }
 
-  renderProdcutList = () => {
+  renderProdcutList() {
     return this.props.products
       && this.props.products.map((product: D.ProductDetail, index: number) => {
         return (
-          // tslint:disable-next-line:max-line-length
-          <Product {...product} isClosed={false} key={index} onClick={this.clickProductItem.bind(null, index)}/>
+          <Product { ...product }
+                   isClosed={ false }
+                   key={ index }
+                   onClick={ this.clickProductItem.bind(this, index) }
+          />
         );
       });
   }
 
   render() {
-    const {showProductDetail, showLogin, showRegister} = this.state;
+    const {showProductDetail, displayProduct, showLogin, showRegister} = this.state;
     const {userLogin} = this.props;
     return (
       <div className="HomeAndPopup">
@@ -87,30 +90,36 @@ class HomePage extends React.Component<HomePageProps, HomePageStates> {
           </div>
           <Footer activeMenu={FooterMeum.Home}/>
         </div>
+        {showProductDetail &&
         <ProductDetailsPopup
           details={{
-            img: 'http://ac-o3K0VdL1.clouddn.com/e9dc3c720e46a499714f.jpg',
-            title: '战狼2',
-            price: '50',
-            owner: 'test1',
-            details: '电影票',
+            img: displayProduct.img,
+            title: displayProduct.title,
+            price: displayProduct.price,
+            owner: displayProduct.owner,
+            details: displayProduct.details,
             onClick: () => {
             }
           }}
           isActive={showProductDetail}
           onIconClick={() => this.setState({showProductDetail: false})}
         />
+        }
         {
-          this.state.showLogin ? <LoginPopup
-            onSubmit={userLogin}
-            isActive={true}
-            goToRegister={() => this.setState({showLogin: false, showRegister: true})}
-            onIconClick={() => this.setState({showLogin: false})}
-          /> : this.state.showRegister ? <RegisterPopup
-            onSubmit={_.noop}
-            isActive={true}
-            onIconClick={() => this.setState({showRegister: false})}
-          /> : null
+          this.state.showLogin
+            ? <LoginPopup
+                onSubmit={userLogin}
+                isActive={true}
+                goToRegister={() => this.setState({showLogin: false, showRegister: true})}
+                onIconClick={() => this.setState({showLogin: false})}
+              />
+            : this.state.showRegister
+            ? <RegisterPopup
+                onSubmit={ _.noop }
+                isActive={ true }
+                onIconClick={() => this.setState({showRegister: false})}
+              />
+            : null
         }
       </div>
     );
@@ -135,7 +144,10 @@ function mapStateToProps(state: D.RootState<object>) {
 function mapDispatchToProps(dispatch: (actions: {}) => void) {
   return {
     getHomeProducts: () => dispatch(getHomeProducts()),
-    userLogin: (User: D.UserForLogin) => dispatch(userLogin(User))
+    userLogin: (username: string, password: string) => {
+      const user: D.UserForLogin = {username, password};
+      dispatch(userLogin(user))
+    }
   };
 }
 
