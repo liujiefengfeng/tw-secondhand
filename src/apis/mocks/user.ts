@@ -18,3 +18,13 @@ fetchMock.mock(
     method: 'GET'
   }
 );
+
+fetchMock.mock(
+  'http://secondhand.leanapp.cn/users/register',
+  {
+    body: 'You have registered successfully.'
+  },
+  {
+    method: 'POST'
+  }
+);
